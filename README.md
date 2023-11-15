@@ -2,6 +2,8 @@
 
 This is a simple Express.js application for managing books with JWT authentication and role-based access control.
 
+[Backend Deployment](https://varthak-library-app-production.up.railway.app/)
+
 ## Features
 
 - JWT authentication for secure API access.
@@ -32,6 +34,12 @@ This is a simple Express.js application for managing books with JWT authenticati
 
 ### `POST /user/login`
 Authenticate user and get JWT token.
+```
+{
+"username":"username",
+"password":"password"
+}
+```
 
 ### `POST /books`
 Create a new book (requires creator role).
