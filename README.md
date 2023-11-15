@@ -37,7 +37,8 @@ Authenticate user and get JWT token.
 ```
 {
 "username":"username",
-"password":"password"
+"password":"password",
+"roles":["role"]
 }
 ```
 
