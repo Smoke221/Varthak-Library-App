@@ -1,6 +1,7 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { userModel } = require("../models/userModel");
+require("dotenv").config()
 
 async function userRegister(req, res) {
   try {
@@ -48,10 +49,9 @@ async function userLogin(req, res) {
 
       if (passwordsMatch) {
         // Create a JWT token for the user's successful login.
-        const token = jwt.sign({ userID: user._id }, "secret", {
+        const token = jwt.sign({ userID: user._id, role: user.roles }, process.env.secretKey, {
           expiresIn: "1h",
-        });
-
+        }); 
         // Successful login, return a token.
         res.json({ message: "Logged in", token: token });
       } else {
